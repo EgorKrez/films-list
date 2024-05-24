@@ -6,6 +6,7 @@
     align-items: center;
     gap: 10px;
     width: 100%;
+    background: aqua;
 }
 
 .header__search {
@@ -34,4 +35,18 @@
 
 .header__user:hover {
     background-color: rgb(128, 128, 128, 0.5);
+}
+
+@media (max-width: 800px) {
+    .header {
+        padding: 6px;
+        gap: 6px;
+    }
+    .header__logo {
+        font-size: 16px;
+    }
+    .header__user div {
+        display: none;
+
+    }
 }

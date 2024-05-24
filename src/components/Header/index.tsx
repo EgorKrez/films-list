@@ -21,7 +21,7 @@ export function Header({
 
         <div className="header__user">
             <UserIcon/>
-            <div>Egor Krezzzz</div>
+            <div>Egor Krez</div>
             <div>▼</div>
         </div>
     </div>;

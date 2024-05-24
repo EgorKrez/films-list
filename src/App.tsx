@@ -135,7 +135,6 @@ function App() {
                        onPage={paginate} />
           </>}
         </>}
-
       </div>
   );
 }

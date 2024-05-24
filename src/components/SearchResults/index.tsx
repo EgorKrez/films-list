@@ -1,7 +1,7 @@
 import React from "react";
 import {ISearchItem} from "../../utils/types";
 import "./index.css";
-
+import DefaultPicture from "../../assets/picture.svg"
 export function SearchResults({
                                   searchTerm,
                                   total,
@@ -20,7 +20,7 @@ export function SearchResults({
             {items?.map(item =>
                 <div key={item.imdbID}
                      className="search-results__item">
-                    <img src={item.Poster} className="search-results__item-icon" />
+                    <img src={item.Poster !== 'N/A' ? item.Poster : DefaultPicture} className="search-results__item-icon" alt="icon" />
                     <div className="search-results__item-labels">
                         <h1>{`Name: ${item.Title}`}</h1>
                         <h1>{`Year: ${item.Year}`}</h1>
