@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.header__search {
+    flex-grow: 1;
+    height: 30px;
+    padding-left: 10px;
+}
+
+.header__logo {
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.header__user {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 7px;
+    transition: background-color 0.4s;
+}
+
+.header__user:hover {
+    background-color: rgb(128, 128, 128, 0.5);
+}
