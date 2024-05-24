@@ -10,44 +10,11 @@ import {Header} from "./components/Header";
 import {Loading} from "./components/Loading";
 import {SearchResults} from "./components/SearchResults";
 import {Paginator} from "./components/Paginator";
+import {debounce} from "./utils";
 
 interface ISearchResults {
   Search: ISearchItem[];
   totalResults: number;
-}
-
-function debounce<T extends Function>(
-    callback: T,
-    delay: number = 1000,
-): T {
-  let lastCall = -1;
-  let timeoutId: any;
-  let lastArgs: any;
-
-  const debouncedCallback = (...args: any[]) => {
-    lastArgs = args;
-
-    clearTimeout(timeoutId);
-
-    if (lastCall !== -1) {
-      if (performance.now() - lastCall >= delay) {
-        callback(...lastArgs);
-        lastCall = -1;
-      } else {
-        timeoutId = setTimeout(
-            () => {
-              callback(...lastArgs);
-              lastCall = -1;
-            },
-            delay,
-        );
-      }
-    }
-
-    lastCall = performance.now();
-  };
-
-  return debouncedCallback as unknown as T;
 }
 
 async function searchTitles(
@@ -55,14 +22,14 @@ async function searchTitles(
     page: number,
     abort: AbortController,
 ): Promise<ISearchResults> {
-  const r = await fetch(
+  const fetchedData = await fetch(
       `https://www.omdbapi.com/?i=tt3896198&apikey=8523cbb8&s=${search}&page=${page}`,
       {
         signal: abort.signal,
       },
   );
 
-  return await r.json();
+  return await fetchedData.json();
 }
 
 function App() {
