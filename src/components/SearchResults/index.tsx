@@ -2,6 +2,7 @@ import React from "react";
 import {ISearchItem} from "../../utils/types";
 import "./index.css";
 import DefaultPicture from "../../assets/picture.svg"
+import {NoItems} from "../NoItems";
 export function SearchResults({
                                   searchTerm,
                                   total,
@@ -17,7 +18,7 @@ export function SearchResults({
         </div>
 
         <div className="search-results__items">
-            {items?.map(item =>
+            {items?.length ? items?.map(item =>
                 <div key={item.imdbID}
                      className="search-results__item">
                     <img src={item.Poster !== 'N/A' ? item.Poster : DefaultPicture} className="search-results__item-icon" alt="icon" />
@@ -28,7 +29,7 @@ export function SearchResults({
                         <h1>{`Type: ${item.Type}`}</h1>
                     </div>
                 </div>,
-            )}
+            ) : <NoItems />}
         </div>
     </div>;
 }
